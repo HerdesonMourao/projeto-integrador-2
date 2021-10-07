@@ -1,11 +1,9 @@
-
-
 <div align="center">
     <h1>
         Projeto Integrador II
+        <p> Projeto 2 - Controle de Gastos </p>
     </h1>
 </div>
-## Projeto 2 - Controle de Gastos
 
 ### Tecnologias utilizadas
 
