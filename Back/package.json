@@ -1,0 +1,22 @@
+{
+  "name": "api-projeto-integrador-2",
+  "version": "1.0.0",
+  "description": "Api do projeto da disciplina Projeto Integrador 2 - Controle de Gastos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HerdesonMourao/projeto-integrador-2/tree/master/Back"
+  },
+  "keywords": [
+    "controle_de_gasto",
+    "api",
+    "backend",
+    "ufc",
+    "PI2"
+  ],
+  "author": "Herdeson Mourao",
+  "license": "MIT"
+}
