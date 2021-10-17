@@ -1,5 +1,3 @@
-
-
 <div align="center">
     <h1>
         Projeto Integrador II
@@ -15,15 +13,14 @@
 
 ### Documentação 
 
-* Documento norteador do projeto
-* Regras gerais da disciplina
+* [Documento norteador do projeto](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/descricao_projeto.pdf)
+* [Regras gerais da disciplina](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/regras_gerais.pdf)
 
 ### Links Importantes
 
-* Repositório github
+* [Repositório github](https://github.com/HerdesonMourao/projeto-integrador-2)
 * Prototipagem de interface
 
 ### Membros
 
 * Herdeson Rodrigues Mourão
-
