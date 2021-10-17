@@ -4,7 +4,12 @@
   "description": "Api do projeto da disciplina Projeto Integrador 2 - Controle de Gastos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "migration:create": "typeorm migration:create -n",
+    "entity:create": "typeorm entity:create -n",
+    "migration": "ts-node ./node_modules/typeorm/cli.js migration:run"
   },
   "repository": {
     "type": "git",
