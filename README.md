@@ -19,7 +19,7 @@
 ### Links Importantes
 
 * [Repositório github](https://github.com/HerdesonMourao/projeto-integrador-2)
-* Prototipagem de interface
+* [Prototipagem de interface](https://www.figma.com/file/Zokd6iGIaSWNL2n1ocEJG3/PI2?node-id=0%3A1)
 
 ### Membros
 
