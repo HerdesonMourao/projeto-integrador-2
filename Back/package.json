@@ -5,11 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
-    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
-    "migration:create": "typeorm migration:create -n",
-    "entity:create": "typeorm entity:create -n",
-    "migration": "ts-node ./node_modules/typeorm/cli.js migration:run"
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -24,17 +20,22 @@
   ],
   "author": "Herdeson Mourao",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HerdesonMourao/projeto-integrador-2/issues"
+  },
+  "homepage": "https://github.com/HerdesonMourao/projeto-integrador-2#readme",
   "dependencies": {
+    "@prisma/client": "^3.6.0",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "pg": "^8.7.1",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.38"
+    "pg": "^8.7.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "dotenv": "^10.0.0",
+    "prisma": "^3.6.0",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.4"
   }
 }
