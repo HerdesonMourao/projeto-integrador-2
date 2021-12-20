@@ -9,6 +9,7 @@
 
 * Typescript
 * Postgresql
+* Prisma
 * Angular
 
 ### Documentação 
@@ -20,6 +21,10 @@
 
 * [Repositório github](https://github.com/HerdesonMourao/projeto-integrador-2)
 * [Prototipagem de interface](https://www.figma.com/file/Zokd6iGIaSWNL2n1ocEJG3/PI2?node-id=0%3A1)
+
+### Diagramas
+
+* [Caso de Uso](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Diagramas/CasoDeUsoVersao01.png)
 
 ### Membros
 
