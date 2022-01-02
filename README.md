@@ -25,6 +25,7 @@
 ### Diagramas
 
 * [Caso de Uso](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Diagramas/CasoDeUsoVersao01.png)
+* [Diagrama de Classe](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Diagramas/DiagramaDeClasseVersao02.png)
 
 ### Membros
 
