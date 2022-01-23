@@ -26,15 +26,16 @@ enum CardTypes {
 }
 
 model User {
-  id          Int      @id
-  name        String
-  username    String
-  password    String
-  email       String
-  whatsapp    String
-  avatar_logo String
-  created_at  DateTime @default(now()) @map("created_at")
-  updated_at  DateTime @updatedAt @map("updated_at")
+  id           Int      @id @default(autoincrement())
+  name         String
+  username     String   @unique
+  password     String
+  email        String
+  whatsapp     String
+  avatar_logo  String?
+  is_activated Boolean  @default(true)
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
 
   Expenditure Expenditure[]
   Cards       Cards[]
@@ -45,7 +46,7 @@ model User {
 }
 
 model Expenditure {
-  id                  Int                @id
+  id                  Int                @id @default(autoincrement())
   user_id             User               @relation(fields: [userId], references: [id])
   description         String
   value               Float
@@ -64,7 +65,7 @@ model Expenditure {
 }
 
 model Cards {
-  id            Int       @id
+  id            Int       @id @default(autoincrement())
   user_id       User      @relation(fields: [userId], references: [id])
   card_number   String
   type          CardTypes
@@ -81,7 +82,7 @@ model Cards {
 }
 
 model Category {
-  id         Int      @id
+  id         Int      @id @default(autoincrement())
   user_id    User     @relation(fields: [userId], references: [id])
   name       String
   created_at DateTime @default(now()) @map("created_at")
@@ -95,7 +96,7 @@ model Category {
 }
 
 model Revenue {
-  id         Int      @id
+  id         Int      @id @default(autoincrement())
   user_id    User     @relation(fields: [userId], references: [id])
   value      Float
   competence String
