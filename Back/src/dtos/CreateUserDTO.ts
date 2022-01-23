@@ -17,3 +17,11 @@ export const createUserRequestSchema = yup.object({
   whatsapp: yup.string().required(),
   avatar_logo: yup.string()
 });
+
+export const updatedUserRequestSchema = yup.object({
+  name: yup.string().required(),
+  username: yup.string().required(),
+  email: yup.string().required().email('Email e um campo obrigatorio!'),
+  whatsapp: yup.string().required(),
+  avatar_logo: yup.string()
+});
