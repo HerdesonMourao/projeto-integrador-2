@@ -78,6 +78,28 @@ class CardsController {
       });
     }
   }
+
+  public async index(request: Request, response: Response) {
+    try {
+      const cardList = await prismaClient.cards.findMany({
+        where: {
+          is_activated: true
+        },
+        orderBy: {
+          card_number: 'asc'
+        }
+      });
+
+      return response.status(200).json({
+        cardList
+      })
+    } catch (err) {
+      return response.status(500).json({
+        error: true,
+        message: `Ocorreu um erro ao tentar exibir os cartoes registrados: ${err.message}`
+      })
+    }
+  }
 }
 
 export default new CardsController();
