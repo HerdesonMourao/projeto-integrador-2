@@ -5,5 +5,8 @@ const routes = Router();
 
 routes.post('/', CardsController.store);
 routes.get('/', CardsController.index);
+routes.get('/:id', CardsController.show);
+routes.put('/:id', CardsController.update);
+routes.delete('/:id', CardsController.destroy);
 
 export default routes;
