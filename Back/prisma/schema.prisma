@@ -55,6 +55,7 @@ model Expenditure {
   payment_method      PaymentMethodTypes
   number_installments Int
   isPaid              Boolean            @default(false) @map("is_paid")
+  is_activated        Boolean            @default(true)
   created_at          DateTime           @default(now()) @map("created_at")
   updated_at          DateTime           @updatedAt @map("updated_at")
 
@@ -83,11 +84,12 @@ model Cards {
 }
 
 model Category {
-  id         Int      @id @default(autoincrement())
-  user_id    User     @relation(fields: [userId], references: [id])
-  name       String
-  created_at DateTime @default(now()) @map("created_at")
-  updated_at DateTime @updatedAt @map("updated_at")
+  id           Int      @id @default(autoincrement())
+  user_id      User     @relation(fields: [userId], references: [id])
+  name         String
+  is_activated Boolean  @default(true)
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
 
   userId Int @map("user_id")
 
