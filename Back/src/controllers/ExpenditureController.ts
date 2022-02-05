@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { date } from 'yup/lib/locale';
 import { prismaClient } from '../database';
 import { CreateExpenditureDTO, createExpenditureRequestSchema } from '../dtos';
 
@@ -41,12 +42,14 @@ class ExpenditureController {
         });
       }
 
+      const convertDate = new Date(expense_date);
+
       const createExpenditure = await prismaClient.expenditure.create({
         data: {
           userId: user_id,
           description,
           value,
-          expense_date,
+          expense_date: convertDate,
           categoryId: Category,
           payment_method,
           number_installments,
@@ -162,6 +165,8 @@ class ExpenditureController {
         });
       }
 
+      const convertDate = new Date(expense_date);
+
       const updateExpenditure = await prismaClient.expenditure.update({
         where: {
           id: Number(id)
@@ -170,7 +175,7 @@ class ExpenditureController {
           userId: user_id,
           description,
           value,
-          expense_date,
+          expense_date: convertDate,
           categoryId: Category,
           payment_method,
           number_installments,

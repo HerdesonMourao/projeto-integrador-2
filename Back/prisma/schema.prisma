@@ -49,8 +49,8 @@ model Expenditure {
   id                  Int                @id @default(autoincrement())
   user_id             User               @relation(fields: [userId], references: [id])
   description         String
-  value               Float
-  expense_date        DateTime
+  value               Decimal
+  expense_date        DateTime           @db.Date()
   category            Category           @relation(fields: [categoryId], references: [id])
   payment_method      PaymentMethodTypes
   number_installments Int
@@ -71,8 +71,8 @@ model Cards {
   card_number   String
   type          CardTypes
   flags         String
-  limit         Float
-  current_value Float
+  limit         Decimal
+  current_value Decimal
   closing_day   Int
   is_activated  Boolean   @default(true)
   created_at    DateTime  @default(now()) @map("created_at")
@@ -101,7 +101,7 @@ model Category {
 model Revenue {
   id           Int      @id @default(autoincrement())
   user_id      User     @relation(fields: [userId], references: [id])
-  value        Float
+  value        Decimal
   competence   String
   is_activated Boolean  @default(true)
   created_at   DateTime @default(now()) @map("created_at")
