@@ -97,12 +97,13 @@ model Category {
 }
 
 model Revenue {
-  id         Int      @id @default(autoincrement())
-  user_id    User     @relation(fields: [userId], references: [id])
-  value      Float
-  competence String
-  created_at DateTime @default(now()) @map("created_at")
-  updated_at DateTime @updatedAt @map("updated_at")
+  id           Int      @id @default(autoincrement())
+  user_id      User     @relation(fields: [userId], references: [id])
+  value        Float
+  competence   String
+  is_activated Boolean  @default(true)
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
 
   userId Int @map("user_id")
 
