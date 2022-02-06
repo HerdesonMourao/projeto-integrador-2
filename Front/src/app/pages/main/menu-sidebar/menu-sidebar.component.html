@@ -1,0 +1,113 @@
+<aside #mainSidebar class="main-sidebar sidebar-dark-primary elevation-4">
+  <a [routerLink]="['/dashboard']" class="brand-link">
+    <span class="brand-text font-weight-light">Bem Vindo</span>
+  </a>
+
+  <div class="sidebar">
+    <nav class="mt-4">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column nav-collapse-hide-child"
+        data-widget="treeview"
+        data-api="tree"
+        data-accordion="true"
+        role="menu"
+      >
+        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+        <li class="nav-item menu-open">
+          <a [routerLink]="['/dashboard']" class="nav-link active">
+            <i class="nav-icon far fas fa-home"></i>
+            <p>Inicio</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="javascript:void(0)" class="nav-link">
+            <i class="nav-icon fas fa-plus-circle"></i>
+            <p>
+              Cadastro
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="['/offices']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Escritório</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/clients']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Empresas</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/contributors']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Colaboradores</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/departaments']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Departamentos</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/activity']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Atividades</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/products']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Produtos</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link">
+            <i class="nav-icon fas fa-mobile-alt"></i>
+            <p>
+              Auditore
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" hidden>
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item" hidden>
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Controle Mensal</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/physical-client']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Login App</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/login-erp']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Login ERP</p>
+              </a>
+            </li>
+            <li class="nav-item" hidden>
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Controle</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

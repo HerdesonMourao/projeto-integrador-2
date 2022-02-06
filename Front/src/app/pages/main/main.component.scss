@@ -1,0 +1,20 @@
+:host {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.content-wrapper{
+  height: 90vh;
+  overflow-y: scroll;
+  padding: 0 10px;
+  background-color: #060818;
+}
+.wrapper {
+  min-height: calc(100vh - 114px);
+  height: 100%;
+  background-color: #060818;
+}
+#sidebar-overlay{
+  background-color: rgba(255,255,255, 0.2);
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
