@@ -50,7 +50,7 @@ model Expenditure {
   user_id             User               @relation(fields: [userId], references: [id])
   description         String
   value               Decimal
-  expense_date        DateTime           @db.Date()
+  expense_date        DateTime           @db.Date
   category            Category           @relation(fields: [categoryId], references: [id])
   payment_method      PaymentMethodTypes
   number_installments Int
