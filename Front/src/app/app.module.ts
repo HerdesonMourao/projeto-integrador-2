@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,10 @@ import { UserDropdownMenuComponent } from './pages/main/header/user-dropdown-men
 import { MenuSidebarComponent } from './pages/main/menu-sidebar/menu-sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AppButtonComponent } from './components/app-button/app-button.component';
+import { UserComponent } from './views/user/user.component';
+import { NewUserComponent } from './views/user/new-user/new-user.component';
+import { EditUserComponent } from './views/user/edit-user/edit-user.component';
+import { RevenueComponent } from './views/revenue/revenue.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +29,25 @@ import { AppButtonComponent } from './components/app-button/app-button.component
     UserDropdownMenuComponent,
     MenuSidebarComponent,
     LoginComponent,
-    AppButtonComponent
+    AppButtonComponent,
+    UserComponent,
+    NewUserComponent,
+    EditUserComponent,
+    RevenueComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
