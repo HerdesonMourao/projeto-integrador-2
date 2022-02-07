@@ -15,7 +15,7 @@ export const createUserRequestSchema = yup.object({
   password: yup.string().required(),
   email: yup.string().required().email('Email e um campo obrigatorio!'),
   whatsapp: yup.string().required(),
-  avatar_logo: yup.string()
+  avatar_logo: yup.string().nullable()
 });
 
 export const updatedUserRequestSchema = yup.object({
@@ -23,5 +23,5 @@ export const updatedUserRequestSchema = yup.object({
   username: yup.string().required(),
   email: yup.string().required().email('Email e um campo obrigatorio!'),
   whatsapp: yup.string().required(),
-  avatar_logo: yup.string()
+  avatar_logo: yup.string().nullable()
 });
