@@ -29,6 +29,6 @@ export class CategoryService {
   }
 
   destroy(id: number): Observable<any> {
-    return this.api.delete('category/', `${id}`);
+    return this.api.delete('category/' + `${id}`);
   }
 }

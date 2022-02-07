@@ -29,6 +29,6 @@ export class RevenueService {
   }
 
   destroy(id: number): Observable<any> {
-    return this.api.delete('revenue/', `${id}`);
+    return this.api.delete('revenue/' + `${id}`);
   }
 }

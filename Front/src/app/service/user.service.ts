@@ -29,7 +29,7 @@ export class UserService {
   }
 
   destroy(id: number): Observable<any> {
-    return this.api.delete('user/', `${id}`);
+    return this.api.delete('user/' + `${id}`);
   }
 
   updatePassword(id: number, user: User): Observable<User> {

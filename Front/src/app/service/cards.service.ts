@@ -29,6 +29,6 @@ export class CardsService {
   }
 
   destroy(id: number): Observable<any> {
-    return this.api.delete('card/', `${id}`);
+    return this.api.delete('card/' + `${id}`);
   }
 }
