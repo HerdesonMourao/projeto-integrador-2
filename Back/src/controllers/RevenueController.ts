@@ -69,9 +69,9 @@ class RevenueController {
         }
       });
 
-      return response.status(200).json({
+      return response.status(200).json(
         revenueList
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,
@@ -101,9 +101,9 @@ class RevenueController {
         })
       }
 
-      return response.status(200).json({
+      return response.status(200).json(
         revenueById
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,

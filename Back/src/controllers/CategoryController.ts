@@ -67,9 +67,9 @@ class CategoryController {
         }
       });
 
-      return response.status(200).json({
+      return response.status(200).json(
         categoryList
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,
@@ -99,9 +99,9 @@ class CategoryController {
         })
       }
 
-      return response.status(200).json({
+      return response.status(200).json(
         categoryById
-      })
+      )
     } catch (err) {
       return response.status(404).json({
         error: true,

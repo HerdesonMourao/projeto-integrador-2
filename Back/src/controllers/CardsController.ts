@@ -92,9 +92,9 @@ class CardsController {
         }
       });
 
-      return response.status(200).json({
+      return response.status(200).json(
         cardList
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,
@@ -124,9 +124,9 @@ class CardsController {
         })
       }
 
-      return response.status(200).json({
+      return response.status(200).json(
         cardById
-      })
+      )
     } catch (err) {
       return response.status(404).json({
         error: true,

@@ -88,9 +88,9 @@ class UserController {
         }
       })  
 
-      return response.status(200).json({
+      return response.status(200).json(
         usersList
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,
@@ -128,9 +128,9 @@ class UserController {
         })
       }
 
-      return response.status(200).json({
+      return response.status(200).json(
         userById
-      })
+      )
     } catch (err) {
       return response.status(404).json({
         error: true,

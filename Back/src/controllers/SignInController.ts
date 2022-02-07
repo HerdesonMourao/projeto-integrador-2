@@ -41,10 +41,9 @@ class SignInController {
 
       delete user.password;
 
-      return response.status(200).json({
+      return response.status(200).json(
         user
-      })
-
+      )
     } catch (err: any) {
       return response.status(500).json({
         error: true,

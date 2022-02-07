@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { date } from 'yup/lib/locale';
 import { prismaClient } from '../database';
 import { CreateExpenditureDTO, createExpenditureRequestSchema } from '../dtos';
 
@@ -82,9 +81,9 @@ class ExpenditureController {
         }
       });
 
-      return response.status(200).json({
+      return response.status(200).json(
         expenditureList
-      })
+      )
     } catch (err) {
       return response.status(500).json({
         error: true,
@@ -114,9 +113,9 @@ class ExpenditureController {
         })
       }
 
-      return response.status(200).json({
+      return response.status(200).json(
         expenditureById
-      })
+      )
     } catch (err) {
       return response.status(404).json({
         error: true,
