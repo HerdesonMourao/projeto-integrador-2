@@ -14,7 +14,7 @@
       >
         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
-          <a [routerLink]="['/dashboard']" class="nav-link active">
+          <a [routerLink]="['/']" class="nav-link active">
             <i class="nav-icon far fas fa-home"></i>
             <p>Inicio</p>
           </a>
@@ -29,44 +29,20 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a [routerLink]="['/offices']" class="nav-link">
+              <a [routerLink]="['/user']" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Escritório</p>
+                <p>Usuário</p>
               </a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/clients']" class="nav-link">
+              <a [routerLink]="['/revenue']" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Empresas</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/contributors']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Colaboradores</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/departaments']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Departamentos</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/activity']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Atividades</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/products']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Produtos</p>
+                <p>Receita</p>
               </a>
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-mobile-alt"></i>
             <p>
@@ -106,7 +82,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </div>

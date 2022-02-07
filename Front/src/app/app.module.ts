@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule, IConfig} from 'ngx-mask';
+import { CurrencyMaskModule, CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,21 @@ import { UserComponent } from './views/user/user.component';
 import { NewUserComponent } from './views/user/new-user/new-user.component';
 import { EditUserComponent } from './views/user/edit-user/edit-user.component';
 import { RevenueComponent } from './views/revenue/revenue.component';
+import { NewRevenueComponent } from './views/revenue/new-revenue/new-revenue.component';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+}
+
+const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align:"left",
+  allowNegative: false,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+}
 
 @NgModule({
   declarations: [
@@ -33,7 +50,8 @@ import { RevenueComponent } from './views/revenue/revenue.component';
     UserComponent,
     NewUserComponent,
     EditUserComponent,
-    RevenueComponent
+    RevenueComponent,
+    NewRevenueComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +60,8 @@ import { RevenueComponent } from './views/revenue/revenue.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CurrencyMaskModule,
+    NgxMaskModule.forRoot(maskConfig),
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
@@ -49,7 +69,11 @@ import { RevenueComponent } from './views/revenue/revenue.component';
     }),
     NgbModule
   ],
-  providers: [],
+  providers: [
+    NgxMaskModule,
+    {provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig}
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
