@@ -30,7 +30,7 @@ class SignInController {
         });
       }
 
-      const comparePassword = await compare(password, user.username);
+      const comparePassword = await compare(password, user.password);
 
       if (!comparePassword) {
         return response.status(400).json({

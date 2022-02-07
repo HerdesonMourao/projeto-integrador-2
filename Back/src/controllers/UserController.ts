@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
-//import { User } from '.prisma/client';
 import { prismaClient } from '../database';
 import { CreateUserDTO, createUserRequestSchema, updatedUserRequestSchema } from '../dtos';
-import { hash, compare } from 'bcryptjs';
+import { hash } from 'bcryptjs';
 
 class UserController {
-  //public async store(request: Request, response: Response): Promise<Response<User> | void> {
   public async store(request: Request, response: Response){
   // validation body
     try {
