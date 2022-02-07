@@ -41,7 +41,7 @@ export class NewUserComponent implements OnInit {
       this.userService.store(this.userForm.value).subscribe(
         (res) => {
           this.toastr.success(
-            'Empresa cadastrada com sucesso!'
+            'Usuario cadastrado com sucesso!'
           );
           this.route.navigate(['user']);
         },
