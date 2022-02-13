@@ -22,6 +22,7 @@ import { NewUserComponent } from './views/user/new-user/new-user.component';
 import { EditUserComponent } from './views/user/edit-user/edit-user.component';
 import { RevenueComponent } from './views/revenue/revenue.component';
 import { NewRevenueComponent } from './views/revenue/new-revenue/new-revenue.component';
+import { EditRevenueComponent } from './views/revenue/edit-revenue/edit-revenue.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -51,7 +52,8 @@ const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     NewUserComponent,
     EditUserComponent,
     RevenueComponent,
-    NewRevenueComponent
+    NewRevenueComponent,
+    EditRevenueComponent
   ],
   imports: [
     BrowserModule,
