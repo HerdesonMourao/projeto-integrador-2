@@ -3,7 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { CardsComponent } from './views/cards/cards.component';
+import { EditCardComponent } from './views/cards/edit-card/edit-card.component';
 import { NewCardComponent } from './views/cards/new-card/new-card.component';
+import { CategoryComponent } from './views/category/category.component';
+import { EditCategoryComponent } from './views/category/edit-category/edit-category.component';
+import { NewCategoryComponent } from './views/category/new-category/new-category.component';
+import { EditExpenditureComponent } from './views/expenditure/edit-expenditure/edit-expenditure.component';
+import { ExpenditureComponent } from './views/expenditure/expenditure.component';
+import { NewExpenditureComponent } from './views/expenditure/new-expenditure/new-expenditure.component';
 import { EditRevenueComponent } from './views/revenue/edit-revenue/edit-revenue.component';
 import { NewRevenueComponent } from './views/revenue/new-revenue/new-revenue.component';
 import { RevenueComponent } from './views/revenue/revenue.component';
@@ -40,12 +47,27 @@ const routes: Routes = [
       {
         path: `card/new`, component: NewCardComponent
       },
-      // {
-      //   path: `category`, component: CardsComponent
-      // },
-      // {
-      //   path: `expenditure`, component: CardsComponent
-      // },
+      {
+        path: `card/edit/:id`, component: EditCardComponent
+      },
+      {
+        path: `category`, component: CategoryComponent
+      },
+      {
+        path: `category/mew`, component: NewCategoryComponent
+      },
+      {
+        path: `category/edit/:id`, component: EditCategoryComponent
+      },
+      {
+        path: `expenditure`, component: ExpenditureComponent
+      },
+      {
+        path: `expenditure/new`, component: NewExpenditureComponent
+      },
+      {
+        path: `expenditure/edit/:id`, component: EditExpenditureComponent
+      },
     ]
   },
   {

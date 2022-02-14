@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       this.userService.acessSystem(username, password).subscribe((res: any) => {
 
-        localStorage.setItem('user_id', res.user.id);
+        localStorage.setItem('user_id', res.id);
         localStorage.setItem('st', 'LOGGED IN');
 
         this.router.navigate(['/']);

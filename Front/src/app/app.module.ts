@@ -23,6 +23,15 @@ import { EditUserComponent } from './views/user/edit-user/edit-user.component';
 import { RevenueComponent } from './views/revenue/revenue.component';
 import { NewRevenueComponent } from './views/revenue/new-revenue/new-revenue.component';
 import { EditRevenueComponent } from './views/revenue/edit-revenue/edit-revenue.component';
+import { CardsComponent } from './views/cards/cards.component';
+import { NewCardComponent } from './views/cards/new-card/new-card.component';
+import { EditCardComponent } from './views/cards/edit-card/edit-card.component';
+import { CategoryComponent } from './views/category/category.component';
+import { NewCategoryComponent } from './views/category/new-category/new-category.component';
+import { EditCategoryComponent } from './views/category/edit-category/edit-category.component';
+import { ExpenditureComponent } from './views/expenditure/expenditure.component';
+import { NewExpenditureComponent } from './views/expenditure/new-expenditure/new-expenditure.component';
+import { EditExpenditureComponent } from './views/expenditure/edit-expenditure/edit-expenditure.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -53,7 +62,16 @@ const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     EditUserComponent,
     RevenueComponent,
     NewRevenueComponent,
-    EditRevenueComponent
+    EditRevenueComponent,
+    CardsComponent,
+    NewCardComponent,
+    EditCardComponent,
+    CategoryComponent,
+    NewCategoryComponent,
+    EditCategoryComponent,
+    ExpenditureComponent,
+    NewExpenditureComponent,
+    EditExpenditureComponent
   ],
   imports: [
     BrowserModule,
