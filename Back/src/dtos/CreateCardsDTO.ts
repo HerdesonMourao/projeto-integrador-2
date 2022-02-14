@@ -23,7 +23,7 @@ export const createCardsRequestSchema = yup.object({
     .oneOf([CardTypes.CREDIT, CardTypes.DEBIT])
     .required(),
   flags: yup.string().required(),
-  limit: yup.number().required(),
-  current_value: yup.number().required(),
-  closing_day: yup.number().required()
+  limit: yup.number().nullable(),
+  current_value: yup.number().nullable(),
+  closing_day: yup.number().nullable()
 })

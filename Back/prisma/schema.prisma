@@ -71,9 +71,9 @@ model Cards {
   card_number   String
   type          CardTypes
   flags         String
-  limit         Decimal
-  current_value Decimal
-  closing_day   Int
+  limit         Decimal?
+  current_value Decimal?
+  closing_day   Int?
   is_activated  Boolean   @default(true)
   created_at    DateTime  @default(now()) @map("created_at")
   updated_at    DateTime  @updatedAt @map("updated_at")
