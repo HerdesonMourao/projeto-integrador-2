@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
+import { CardsComponent } from './views/cards/cards.component';
+import { NewCardComponent } from './views/cards/new-card/new-card.component';
 import { EditRevenueComponent } from './views/revenue/edit-revenue/edit-revenue.component';
 import { NewRevenueComponent } from './views/revenue/new-revenue/new-revenue.component';
 import { RevenueComponent } from './views/revenue/revenue.component';
@@ -31,7 +33,19 @@ const routes: Routes = [
       },
       {
         path: `revenue/edit/:id`, component: EditRevenueComponent
-      }
+      },
+      {
+        path: `card`, component: CardsComponent
+      },
+      {
+        path: `card/new`, component: NewCardComponent
+      },
+      // {
+      //   path: `category`, component: CardsComponent
+      // },
+      // {
+      //   path: `expenditure`, component: CardsComponent
+      // },
     ]
   },
   {
