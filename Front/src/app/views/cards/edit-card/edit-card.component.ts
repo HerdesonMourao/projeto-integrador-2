@@ -55,6 +55,10 @@ export class EditCardComponent implements OnInit {
       current_value: data.current_value,
       closing_day: data.closing_day
     })
+
+    if(data.type == `CREDIT`){
+      this.credit_type = false
+    }
   }
 
   initForm(){
@@ -78,6 +82,10 @@ export class EditCardComponent implements OnInit {
 
   register(){
     this.cardForm.value.user_id = Number(localStorage.getItem('user_id'));
+
+    this.cardForm.patchValue({
+      closing_day: Number(this.cardForm.value.closing_day)
+    });
 
     if(this.cardForm.valid){
       this.cardService.update(this.cardForm.value, this.idParams).subscribe(

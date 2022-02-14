@@ -46,13 +46,17 @@ export class NewCardComponent implements OnInit {
   register(){
     this.cardForm.addControl('user_id', new FormControl(Number(localStorage.getItem('user_id'))));
 
+    this.cardForm.patchValue({
+      closing_day: Number(this.cardForm.value.closing_day)
+    });
+
     if(this.cardForm.valid){
       this.cardService.store(this.cardForm.value).subscribe(
         (res) => {
           this.toastr.success(
             'Cartao cadastrada com sucesso!'
           );
-          this.route.navigate(['revenue']);
+          this.route.navigate(['card']);
         },
         (message) => {
           this.toastr.error(
