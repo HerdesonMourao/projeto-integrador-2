@@ -1,0 +1,126 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Despesas</h1>
+        <br />
+        <a [routerLink]="['/expenditure']" class="btn btn-outline-primary"
+          >Listar Despesas</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="expenditureForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <h5>Dados</h5>
+          <div class="flex">
+            <div class="line-one">
+              <label for="description">Descrição*</label>
+              <input
+                id="description"
+                name="description"
+                type="text"
+                class="form-control"
+                placeholder="descrição"
+                formControlName="description"
+                (blur)="blurValidationRequired('description')"
+              />
+              <div id="validationMessage" *ngIf="description.errors">
+                <p *ngIf="description.errors.required && context_description == 'description'">
+                  Descrição é obrigatório.
+                </p>
+              </div>
+            </div>
+            <div class="line-one">
+              <label for="value">Valor*</label>
+              <input
+              id="value"
+              name="value"
+              type="text"
+              class="form-control"
+              placeholder="0000.00"
+              formControlName="value"
+              currencyMask
+              (blur)="blurValidationRequired('value')"
+              />
+              <div id="validationMessage" *ngIf="value.errors">
+                <p *ngIf="value.errors.required && context_value == 'value'">
+                  Valor é obrigatório.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="line-two">
+              <label for="expense_date">Data da despesa*</label>
+              <input
+                id="expense_date"
+                name="expense_date"
+                type="date"
+                class="form-control"
+                formControlName="expense_date"
+              />
+            </div>
+            <div class="line-two">
+              <label for="Category">Categoria*</label>
+              <select id= "Category" class="form-control" formControlName="Category">
+                <option value="" >-- selecione --</option>
+                <option *ngFor="let category of categorys" [value]="category.id">{{ category.name }}</option>
+            </select>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="line-three">
+              <label for="payment_method">Forma de pagamento*</label>
+              <select id= "payment_method"  class="form-control" formControlName="payment_method">
+                <option value="" selected>-- Selecione --</option>
+                <option value="MONEY">DINHEIRO</option>
+                <option value="CREDIT_CARD">CARTÃO DE CREDITO</option>
+                <option value="DEBIT_CARD">CARTÃO DE DEBITO</option>
+              </select>
+            </div>
+            <div class="line-three">
+              <label for="number_installments">Numero de parcelas*</label>
+              <input
+                id="number_installments"
+                name="number_installments"
+                type="text"
+                mask="00"
+                class="form-control"
+                formControlName="number_installments"
+                placeholder="00"
+              />
+            </div>
+            <div class="line-three">
+              <label for="isPaid">Status*</label>
+              <select id= "isPaid" class="form-control" formControlName="isPaid">
+                <option value="" selected>-- Selecione --</option>
+                <option value="false">EM ABERTO</option>
+                <option value="true">PAGO</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="button-container" style="display: flex; gap: 10px">
+          <a
+            [routerLink]="['/expenditure']"
+            type="button"
+            class="btn btn-outline-danger"
+          >
+            <i class="fas fa-times"></i>
+            Cancelar
+          </a>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-check"></i>
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
