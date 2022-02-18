@@ -92,7 +92,8 @@ class ExpenditureController {
             is_activated: true
           },
           include: {
-            user_id: true
+            user_id: true,
+            category: true,
           },
           orderBy: {
             description: 'asc'
@@ -105,7 +106,8 @@ class ExpenditureController {
             is_activated: true
           },
           include: {
-            user_id: true
+            user_id: true,
+            category: true,
           },
           orderBy: {
             description: 'asc'
@@ -134,7 +136,8 @@ class ExpenditureController {
           is_activated: true
         },
         include: {
-          user_id: true
+          user_id: true,
+          category: true
         }
       });
 
