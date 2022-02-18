@@ -20,6 +20,8 @@ export class UserComponent implements OnInit {
   passwordChange: FormGroup;
   isNotEqual: boolean;
 
+  role_types: boolean;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -30,6 +32,7 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.checkTypeRole();
     this.getAllUsers();
 
     this.passwordChange = this.formService.group({
@@ -40,7 +43,9 @@ export class UserComponent implements OnInit {
   }
 
   getAllUsers(){
-    this.userService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.userService.index(id).subscribe((data) => {
       this.users = data;
     })
   }
@@ -129,6 +134,7 @@ export class UserComponent implements OnInit {
       this.isNotEqual = false;
     }
   }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -139,4 +145,13 @@ export class UserComponent implements OnInit {
     }
   }
 
+  checkTypeRole(){
+    let role = localStorage.getItem('level');
+
+    if(role == "ADMIN"){
+      this.role_types = false
+    } else {
+      this.role_types = true
+    }
+  }
 }

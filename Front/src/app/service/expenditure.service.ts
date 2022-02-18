@@ -16,8 +16,8 @@ export class ExpenditureService {
     return this.api.post('expenditure', expenditure);
   }
 
-  index(): Observable<Expenditure[]> {
-    return this.api.get('expenditure');
+  index(id: number): Observable<Expenditure[]> {
+    return this.api.get(`expenditure/${id}/all`);
   }
 
   show(id: number): Observable<Expenditure> {

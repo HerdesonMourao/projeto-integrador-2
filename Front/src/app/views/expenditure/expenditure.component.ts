@@ -23,7 +23,9 @@ export class ExpenditureComponent implements OnInit {
   }
 
   getAllExpenditure(){
-    this.expenditureService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.expenditureService.index(id).subscribe((data) => {
       this.expenditures = data;
     })
   }

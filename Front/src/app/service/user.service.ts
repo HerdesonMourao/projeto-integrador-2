@@ -16,8 +16,8 @@ export class UserService {
     return this.api.post('user', user);
   }
 
-  index(): Observable<User[]> {
-    return this.api.get('user');
+  index(id: number): Observable<User[]> {
+    return this.api.get(`user/${id}/all`);
   }
 
   show(id: number): Observable<User> {

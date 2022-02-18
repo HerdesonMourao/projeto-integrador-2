@@ -23,7 +23,9 @@ export class RevenueComponent implements OnInit {
   }
 
   getAllRevenues(){
-    this.revenueService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.revenueService.index(id).subscribe((data) => {
       this.revenues = data;
     })
   }

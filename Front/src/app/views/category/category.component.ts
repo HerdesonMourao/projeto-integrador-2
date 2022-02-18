@@ -23,7 +23,9 @@ export class CategoryComponent implements OnInit {
   }
 
   getAllCategory(){
-    this.categoryService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.categoryService.index(id).subscribe((data) => {
       this.categorys = data;
     })
   }

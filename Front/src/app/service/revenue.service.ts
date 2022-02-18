@@ -16,8 +16,8 @@ export class RevenueService {
     return this.api.post('revenue', revenue);
   }
 
-  index(): Observable<Revenue[]> {
-    return this.api.get('revenue');
+  index(id: number): Observable<Revenue[]> {
+    return this.api.get(`revenue/${id}/all`);
   }
 
   show(id: number): Observable<Revenue> {

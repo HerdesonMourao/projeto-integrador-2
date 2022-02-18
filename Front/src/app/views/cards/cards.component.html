@@ -40,7 +40,8 @@
             <tbody>
               <tr *ngFor="let card of cards">
                 <td>{{ card.card_number }}</td>
-                <td>{{ card.type }}</td>
+                <td *ngIf="card.type == 'CREDIT'">Credito</td>
+                <td *ngIf="card.type == 'DEBIT'">Debito</td>
                 <td>{{ card.flags }}</td>
                 <td>R$ {{ card.limit }}</td>
                 <td>R$ {{ card.current_value }}</td>

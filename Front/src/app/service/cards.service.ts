@@ -16,8 +16,8 @@ export class CardsService {
     return this.api.post('card', cards);
   }
 
-  index(): Observable<Cards[]> {
-    return this.api.get('card');
+  index(id: number): Observable<Cards[]> {
+    return this.api.get(`card/${id}/all`);
   }
 
   show(id: number): Observable<Cards> {

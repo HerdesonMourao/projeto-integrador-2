@@ -31,6 +31,7 @@ export class NewUserComponent implements OnInit {
       username: new FormControl(null, Validators.compose([Validators.required])),
       password: new FormControl(null, Validators.compose([Validators.required])),
       avatar_logo: new FormControl(null),
+      role: new FormControl('', Validators.compose([Validators.required])),
       whatsapp: new FormControl(null, Validators.compose([Validators.required])),
       email: new FormControl(null, Validators.compose([Validators.required])),
     });

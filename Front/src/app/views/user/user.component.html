@@ -4,7 +4,7 @@
       <div class="col-sm-6">
         <h1 class="m-0 text-light">Usuários</h1>
         <br />
-        <a [routerLink]="['/user/new']" class="btn btn-outline-primary">Novo</a>
+        <a [routerLink]="['/user/new']" class="btn btn-outline-primary" [hidden]="role_types">Novo</a>
       </div>
     </div>
   </div>
@@ -43,6 +43,7 @@
                   <i
                     class="fas fa-pencil-alt fa-lx"
                     (click)="onEdit(user.id)"
+                    [hidden]="role_types"
                   ></i>
                   &nbsp;
                   <i
@@ -53,6 +54,7 @@
                   <i
                     class="fas fa-trash-alt fa-lx"
                     (click)="onDelete(user.id)"
+                    [hidden]="role_types"
                   ></i>
                 </td>
               </tr>

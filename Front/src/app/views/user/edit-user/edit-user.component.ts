@@ -54,6 +54,7 @@ export class EditUserComponent implements OnInit {
       username: data.username,
       //password: data.password,
       avatar_logo: data.avatar_logo,
+      role: data.role,
       whatsapp: data.whatsapp,
       email: data.email,
     });
@@ -64,6 +65,7 @@ export class EditUserComponent implements OnInit {
       name: new FormControl(null, Validators.compose([Validators.required])),
       username: new FormControl(null, Validators.compose([Validators.required])),
       //password: new FormControl(null, Validators.compose([Validators.required])),
+      role: new FormControl(''),
       avatar_logo: new FormControl(null),
       whatsapp: new FormControl(null, Validators.compose([Validators.required])),
       email: new FormControl(null, Validators.compose([Validators.required])),

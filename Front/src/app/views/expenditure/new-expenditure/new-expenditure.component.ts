@@ -42,13 +42,21 @@ export class NewExpenditureComponent implements OnInit {
   }
 
   getAllCategory(){
-    this.categoryService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.categoryService.index(id).subscribe((data) => {
       this.categorys = data;
     })
   }
 
   register(){
     this.expenditureForm.addControl('user_id', new FormControl(Number(localStorage.getItem('user_id'))));
+
+    this.expenditureForm.patchValue({
+      Category: Number(this.expenditureForm.value.Category),
+      number_installments: Number(this.expenditureForm.value.number_installments),
+      isPaid: Boolean(this.expenditureForm.value.isPaid)
+    });
 
     if(this.expenditureForm.valid){
       this.expenditureService.store(this.expenditureForm.value).subscribe(

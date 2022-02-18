@@ -46,7 +46,9 @@ export class EditExpenditureComponent implements OnInit {
   }
 
   getAllCategory(){
-    this.categoryService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.categoryService.index(id).subscribe((data) => {
       this.categorys = data;
     })
   }
@@ -84,6 +86,12 @@ export class EditExpenditureComponent implements OnInit {
 
   register(){
     this.expenditureForm.value.user_id = Number(localStorage.getItem('user_id'));
+
+    if(this.expenditureForm.value.isPaid == `true`){
+      this.expenditureForm.value.isPaid = true
+    } else {
+      this.expenditureForm.value.isPaid = false
+    }
 
     if(this.expenditureForm.valid){
       this.expenditureService.update(this.expenditureForm.value, this.idParams).subscribe(

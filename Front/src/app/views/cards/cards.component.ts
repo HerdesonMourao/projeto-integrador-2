@@ -23,7 +23,9 @@ export class CardsComponent implements OnInit {
   }
 
   getAllCards(){
-    this.cardService.index().subscribe((data) => {
+    let id = Number(localStorage.getItem('user_id'));
+
+    this.cardService.index(id).subscribe((data) => {
       this.cards = data;
     })
   }

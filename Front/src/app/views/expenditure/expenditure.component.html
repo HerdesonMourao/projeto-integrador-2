@@ -43,10 +43,13 @@
                 <td>{{ expenditure.description }}</td>
                 <td>R$ {{ expenditure.value }}</td>
                 <td>{{ expenditure.expense_date | date: "dd/MM/yyyy"  }}</td>
-                <td>{{ expenditure.category }}</td>
-                <td>{{ expenditure.payment_method }}</td>
+                <td>{{ expenditure.category.name }}</td>
+                <td *ngIf="expenditure.payment_method == 'MONEY'">Dinheiro</td>
+                <td *ngIf="expenditure.payment_method == 'CREDIT_CARD'">Cartao de credito</td>
+                <td *ngIf="expenditure.payment_method == 'DEBIT_CARD'">Cartao de debito</td>
                 <td>{{ expenditure.number_installments }}</td>
-                <td>{{ expenditure.isPaid }}</td>
+                <td *ngIf="expenditure.isPaid == true">Pago</td>
+                <td *ngIf="expenditure.isPaid == false">Em aberto</td>
                 <td>
                   <i
                     class="fas fa-pencil-alt fa-lx"
