@@ -16,6 +16,8 @@ export class UserDropdownMenuComponent implements OnInit {
   }
 
   sair(){
+    localStorage.clear();
+
     this.router.navigate(['/login']);
   }
 
