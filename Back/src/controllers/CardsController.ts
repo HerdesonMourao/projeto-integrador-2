@@ -80,17 +80,49 @@ class CardsController {
 
   public async index(request: Request, response: Response) {
     try {
-      const cardList = await prismaClient.cards.findMany({
+      const { id } = request.params;
+
+      const user = await prismaClient.user.findFirst({
         where: {
-          is_activated: true
-        },
-        include: {
-          user_id: true
-        },
-        orderBy: {
-          card_number: 'asc'
+          id: Number(id)
         }
       });
+
+      if(!user){
+        return response.status(404).json({
+          error: true,
+          message: 'Usuário não existe'
+        });
+      }
+
+      let cardList;
+      
+      if(user.role == "ADMIN"){
+        cardList = await prismaClient.cards.findMany({
+          where: {
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            card_number: 'asc'
+          }
+        });
+      } else {
+        cardList = await prismaClient.cards.findMany({
+          where: {
+            userId: Number(id),
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            card_number: 'asc'
+          }
+        });
+      }
 
       return response.status(200).json(
         cardList

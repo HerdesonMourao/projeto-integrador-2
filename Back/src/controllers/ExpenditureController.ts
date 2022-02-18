@@ -69,17 +69,49 @@ class ExpenditureController {
 
   public async index(request: Request, response: Response) {
     try {
-      const expenditureList = await prismaClient.expenditure.findMany({
+      const { id } = request.params;
+
+      const user = await prismaClient.user.findFirst({
         where: {
-          is_activated: true
-        },
-        include: {
-          user_id: true
-        },
-        orderBy: {
-          description: 'asc'
+          id: Number(id)
         }
       });
+
+      if(!user){
+        return response.status(404).json({
+          error: true,
+          message: 'Usuário não existe'
+        });
+      }
+
+      let expenditureList;
+      
+      if(user.role == "ADMIN"){
+        expenditureList = await prismaClient.expenditure.findMany({
+          where: {
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            description: 'asc'
+          }
+        });
+      } else {
+        expenditureList = await prismaClient.expenditure.findMany({
+          where: {
+            userId: Number(id),
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            description: 'asc'
+          }
+        });
+      }
 
       return response.status(200).json(
         expenditureList

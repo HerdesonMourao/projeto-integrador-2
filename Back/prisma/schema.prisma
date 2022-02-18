@@ -25,17 +25,25 @@ enum CardTypes {
   @@map("cards_types")
 }
 
+enum RoleTypes {
+  ADMIN
+  CLIENTE
+
+  @@map("role_types")
+}
+
 model User {
-  id           Int      @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   name         String
-  username     String   @unique
+  username     String    
   password     String
   email        String
   whatsapp     String
   avatar_logo  String?
-  is_activated Boolean  @default(true)
-  created_at   DateTime @default(now()) @map("created_at")
-  updated_at   DateTime @updatedAt @map("updated_at")
+  role         RoleTypes
+  is_activated Boolean   @default(true)
+  created_at   DateTime  @default(now()) @map("created_at")
+  updated_at   DateTime  @updatedAt @map("updated_at")
 
   Expenditure Expenditure[]
   Cards       Cards[]

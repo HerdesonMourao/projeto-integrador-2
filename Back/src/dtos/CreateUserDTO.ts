@@ -1,5 +1,10 @@
 import * as yup from 'yup';
 
+enum RoleTypes {
+  ADMIN = 'ADMIN',
+  CLIENTE = "CLIENTE"
+}
+
 export interface CreateUserDTO {
   name: string;
   username: string;
@@ -7,6 +12,7 @@ export interface CreateUserDTO {
   email: string;
   whatsapp: string;
   avatar_logo?: string;
+  role: RoleTypes;
 };
 
 export const createUserRequestSchema = yup.object({
@@ -15,7 +21,8 @@ export const createUserRequestSchema = yup.object({
   password: yup.string().required(),
   email: yup.string().required().email('Email e um campo obrigatorio!'),
   whatsapp: yup.string().required(),
-  avatar_logo: yup.string().nullable()
+  avatar_logo: yup.string().nullable(),
+  role: yup.string().oneOf([RoleTypes.ADMIN, RoleTypes.CLIENTE]).required()
 });
 
 export const updatedUserRequestSchema = yup.object({
@@ -23,5 +30,6 @@ export const updatedUserRequestSchema = yup.object({
   username: yup.string().required(),
   email: yup.string().required().email('Email e um campo obrigatorio!'),
   whatsapp: yup.string().required(),
-  avatar_logo: yup.string().nullable()
+  avatar_logo: yup.string().nullable(),
+  role: yup.string().oneOf([RoleTypes.ADMIN, RoleTypes.CLIENTE]).required()
 });

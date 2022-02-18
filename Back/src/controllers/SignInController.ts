@@ -17,7 +17,7 @@ class SignInController {
         });
       }
       
-      const user = await prismaClient.user.findUnique({
+      const user = await prismaClient.user.findFirst({
         where: {
           username
         }

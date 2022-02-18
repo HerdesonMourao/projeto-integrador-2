@@ -4,6 +4,9 @@ CREATE TYPE "paymentMethod_types" AS ENUM ('DEBIT_CARD', 'CREDIT_CARD', 'MONEY')
 -- CreateEnum
 CREATE TYPE "cards_types" AS ENUM ('CREDIT', 'DEBIT');
 
+-- CreateEnum
+CREATE TYPE "role_types" AS ENUM ('ADMIN', 'CLIENTE');
+
 -- CreateTable
 CREATE TABLE "user" (
     "id" SERIAL NOT NULL,
@@ -13,6 +16,7 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL,
     "whatsapp" TEXT NOT NULL,
     "avatar_logo" TEXT,
+    "role" "role_types" NOT NULL,
     "is_activated" BOOLEAN NOT NULL DEFAULT true,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -44,9 +48,9 @@ CREATE TABLE "cards" (
     "card_number" TEXT NOT NULL,
     "type" "cards_types" NOT NULL,
     "flags" TEXT NOT NULL,
-    "limit" DECIMAL(65,30) NOT NULL,
-    "current_value" DECIMAL(65,30) NOT NULL,
-    "closing_day" INTEGER NOT NULL,
+    "limit" DECIMAL(65,30),
+    "current_value" DECIMAL(65,30),
+    "closing_day" INTEGER,
     "is_activated" BOOLEAN NOT NULL DEFAULT true,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,

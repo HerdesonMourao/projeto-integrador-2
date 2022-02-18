@@ -57,18 +57,50 @@ class RevenueController {
 
   public async index(request: Request, response: Response) {
     try {
-      const revenueList = await prismaClient.revenue.findMany({
+      const { id } = request.params;
+
+      const user = await prismaClient.user.findFirst({
         where: {
-          is_activated: true
-        },
-        include: {
-          user_id: true
-        },
-        orderBy: {
-          competence: 'asc'
+          id: Number(id)
         }
       });
 
+      if(!user){
+        return response.status(404).json({
+          error: true,
+          message: 'Usuário não existe'
+        });
+      }
+
+      let revenueList;
+
+      if(user.role == "ADMIN"){
+        revenueList = await prismaClient.revenue.findMany({
+          where: {
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            competence: 'asc'
+          }
+        });
+      } else {
+        revenueList = await prismaClient.revenue.findMany({
+          where: {
+            userId: Number(id),
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            competence: 'asc'
+          }
+        });
+      }
+      
       return response.status(200).json(
         revenueList
       )

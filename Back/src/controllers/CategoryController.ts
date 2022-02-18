@@ -55,17 +55,49 @@ class CategoryController {
 
   public async index(request: Request, response: Response) {
     try {
-      const categoryList = await prismaClient.category.findMany({
+      const { id } = request.params;
+
+      const user = await prismaClient.user.findFirst({
         where: {
-          is_activated: true
-        },
-        include: {
-          user_id: true
-        },
-        orderBy: {
-          name: 'asc'
+          id: Number(id)
         }
       });
+
+      if(!user){
+        return response.status(404).json({
+          error: true,
+          message: 'Usuário não existe'
+        });
+      }
+
+      let categoryList;
+
+      if(user.role == "ADMIN"){
+        categoryList = await prismaClient.category.findMany({
+          where: {
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            name: 'asc'
+          }
+        });
+      } else {
+        categoryList = await prismaClient.category.findMany({
+          where: {
+            userId: Number(id),
+            is_activated: true
+          },
+          include: {
+            user_id: true
+          },
+          orderBy: {
+            name: 'asc'
+          }
+        });
+      }
 
       return response.status(200).json(
         categoryList

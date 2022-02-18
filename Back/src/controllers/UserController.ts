@@ -21,25 +21,12 @@ class UserController {
       password,
       email,
       whatsapp,
-      avatar_logo
+      avatar_logo,
+      role
     }: CreateUserDTO = request.body;
 
     // create user
     try {
-      // find username
-      const userByUsername = await prismaClient.user.findUnique({
-        where: {
-          username
-        }
-      });
-
-      if(userByUsername){
-        return response.status(201).json({
-          error: true,
-          message: 'Já existe um usuário com este username'
-        });
-      }
-
       // converting password to hash
       const encryptedPassword = await hash(password, 10);
 
@@ -50,7 +37,8 @@ class UserController {
           password: encryptedPassword,
           email,
           whatsapp,
-          avatar_logo
+          avatar_logo,
+          role
         }
       })
 
@@ -67,26 +55,67 @@ class UserController {
 
   public async index(request: Request, response: Response){
     try {
-      const usersList = await prismaClient.user.findMany({
-        // selecting fields to display
-        select: {
-          id: true,
-          name: true,
-          username: true,
-          email: true,
-          whatsapp: true,
-          avatar_logo: true,
-          is_activated: true,
-          created_at: true,
-          updated_at: true
-        },
+      const { id } = request.params;
+
+      const user = await prismaClient.user.findFirst({
         where: {
-          is_activated: true
-        },
-        orderBy: {
-          name: 'asc'
+          id: Number(id)
         }
-      })  
+      });
+
+      if(!user){
+        return response.status(404).json({
+          error: true,
+          message: 'Usuário não existe'
+        });
+      }
+
+      let usersList;
+
+      if(user.role == "ADMIN"){
+        usersList = await prismaClient.user.findMany({
+          // selecting fields to display
+          select: {
+            id: true,
+            name: true,
+            username: true,
+            email: true,
+            whatsapp: true,
+            avatar_logo: true,
+            is_activated: true,
+            created_at: true,
+            updated_at: true
+          },
+          where: {
+            is_activated: true
+          },
+          orderBy: {
+            name: 'asc'
+          }
+        })
+      } else {
+        usersList = await prismaClient.user.findMany({
+          // selecting fields to display
+          select: {
+            id: true,
+            name: true,
+            username: true,
+            email: true,
+            whatsapp: true,
+            avatar_logo: true,
+            is_activated: true,
+            created_at: true,
+            updated_at: true
+          },
+          where: {
+            id: Number(id),
+            is_activated: true
+          },
+          orderBy: {
+            name: 'asc'
+          }
+        })
+      }
 
       return response.status(200).json(
         usersList
@@ -111,6 +140,7 @@ class UserController {
           email: true,
           whatsapp: true,
           avatar_logo: true,
+          role: true,
           is_activated: true,
           created_at: true,
           updated_at: true
@@ -154,7 +184,8 @@ class UserController {
       username,
       email,
       whatsapp,
-      avatar_logo
+      avatar_logo,
+      role
     }: CreateUserDTO = request.body;
 
     const { id } = request.params;
@@ -174,21 +205,6 @@ class UserController {
         })
       }
 
-      const verifyUsernameDuplicate = await prismaClient.user.findUnique({
-        where: {
-          username: username
-        }
-      })
-
-      console.log(verifyUsernameDuplicate);
-
-      if(verifyUsernameDuplicate && verifyUsernameDuplicate.id != userById.id){
-        return response.status(400).json({
-          error: true,
-          message: 'Já existe um usuário com este username, tente outro username'
-        })
-      }
-
       const userUpdateById = await prismaClient.user.update({
         where: { id: Number(id) },
         data: {
@@ -196,7 +212,8 @@ class UserController {
           username,
           email,
           whatsapp,
-          avatar_logo
+          avatar_logo,
+          role
         }
       })
       
