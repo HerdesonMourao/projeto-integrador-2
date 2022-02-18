@@ -29,6 +29,10 @@
 * [Diagrama de Estado de Máquina](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Diagramas/DiagramaDeEstadoDeMaquina.png)
 * [Diagrama de Pacote](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Diagramas/DiagramaDePacote.png)
 
+### Plano de contingência
+
+* [Plano de Contingência](https://github.com/HerdesonMourao/projeto-integrador-2/blob/master/Docs/Plano_de_contingencia.pdf)
+
 ### Membros
 
 * Herdeson Rodrigues Mourão
