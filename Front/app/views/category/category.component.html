@@ -1,0 +1,58 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-light">Categorias</h1>
+        <br />
+        <a [routerLink]="['/category/new']" class="btn btn-outline-primary"
+          >Nova categoria</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="row">
+    <div id="div-col12" class="col-12">
+      <div class="category">
+        <div class="category-body" id="category-body-table">
+          <input
+            type="search"
+            name="searchCategory"
+            id="searchCategory"
+            class="form-control"
+            placeholder="Pesquisar ..."
+            (keyup)="filterCategory($event)"
+          />
+          <table class="table" id="categoryTable">
+            <thead>
+              <tr>
+                <th>CATEGORIA</th>
+                <th>CADASTRADA EM</th>
+                <th>AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categorys">
+                <td>{{ category.name }}</td>
+                <td>{{ category.created_at | date: "dd/MM/yyyy"  }}</td>
+                <td>
+                  <i
+                    class="fas fa-pencil-alt fa-lx"
+                    (click)="onEdit(category.id)"
+                  ></i>
+                  &nbsp;
+                  <i
+                    class="fas fa-trash-alt fa-lx"
+                    (click)="onDelete(category.id)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

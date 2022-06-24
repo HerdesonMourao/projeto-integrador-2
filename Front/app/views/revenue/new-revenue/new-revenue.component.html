@@ -1,0 +1,77 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Receitas</h1>
+        <br />
+        <a [routerLink]="['/revenue']" class="btn btn-outline-primary"
+          >Listar Receitas</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="revenueForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <h5>Dados</h5>
+          <div class="flex">
+            <div class="line-one">
+              <label for="competence">Competencia*</label>
+              <input
+                id="competence"
+                name="competence"
+                type="text"
+                class="form-control"
+                placeholder="00/0000"
+                mask="00/0000"
+                formControlName="competence"
+                (blur)="blurValidationRequired('competence')"
+              />
+              <div id="validationMessage" *ngIf="competence.errors">
+                <p *ngIf="competence.errors.required && context_competence == 'competence'">
+                  Competencia é obrigatório.
+                </p>
+              </div>
+            </div>
+            <div class="line-one">
+              <label for="value">Valor*</label>
+              <input
+                id="value"
+                name="value"
+                type="text"
+                class="form-control"
+                placeholder="0000.00"
+                formControlName="value"
+                currencyMask
+                (blur)="blurValidationRequired('value')"
+              />
+              <div id="validationMessage" *ngIf="value.errors">
+                <p *ngIf="value.errors.required && context_value == 'value'">
+                  Valor é obrigatório.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-container" style="display: flex; gap: 10px">
+          <a
+            [routerLink]="['/revenue']"
+            type="button"
+            class="btn btn-outline-danger"
+          >
+            <i class="fas fa-times"></i>
+            Cancelar
+          </a>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-check"></i>
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

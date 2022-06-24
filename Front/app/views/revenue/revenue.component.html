@@ -1,0 +1,60 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-light">Receitas</h1>
+        <br />
+        <a [routerLink]="['/revenue/new']" class="btn btn-outline-primary"
+          >Novo</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="row">
+    <div id="div-col12" class="col-12">
+      <div class="card">
+        <div class="card-body" id="card-body-table">
+          <input
+            type="search"
+            name="searchRevenue"
+            id="searchRevenue"
+            class="form-control"
+            placeholder="Pesquisar ..."
+            (keyup)="filterRevenue($event)"
+          />
+          <table class="table" id="revenueTable">
+            <thead>
+              <tr>
+                <th>VALOR</th>
+                <th>COMPETENCIA</th>
+                <th>CADASTRADA EM</th>
+                <th>AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let revenue of revenues">
+                <td>R$ {{ revenue.value }}</td>
+                <td>{{ revenue.competence }}</td>
+                <td>{{ revenue.created_at | date: "dd/MM/yyyy" }}</td>
+                <td>
+                  <i
+                    class="fas fa-pencil-alt fa-lx"
+                    (click)="onEdit(revenue.id)"
+                  ></i>
+                  &nbsp;
+                  <i
+                    class="fas fa-trash-alt fa-lx"
+                    (click)="onDelete(revenue.id)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

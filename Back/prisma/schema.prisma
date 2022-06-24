@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PaymentMethodTypes {
+  DEBIT_CARD
+  CREDIT_CARD
+  MONEY
+
+  @@map("paymentMethod_types")
+}
+
+enum CardTypes {
+  CREDIT
+  DEBIT
+
+  @@map("cards_types")
+}
+
+enum RoleTypes {
+  ADMIN
+  CLIENTE
+
+  @@map("role_types")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  username     String    
+  password     String
+  email        String
+  whatsapp     String
+  avatar_logo  String?
+  role         RoleTypes
+  is_activated Boolean   @default(true)
+  created_at   DateTime  @default(now()) @map("created_at")
+  updated_at   DateTime  @updatedAt @map("updated_at")
+
+  Expenditure Expenditure[]
+  Cards       Cards[]
+  Category    Category[]
+
+  Revenue Revenue[]
+  @@map("user")
+}
+
+model Expenditure {
+  id                  Int                @id @default(autoincrement())
+  user_id             User               @relation(fields: [userId], references: [id])
+  description         String
+  value               Decimal
+  expense_date        DateTime           @db.Date
+  category            Category           @relation(fields: [categoryId], references: [id])
+  payment_method      PaymentMethodTypes
+  number_installments Int
+  isPaid              Boolean            @default(false) @map("is_paid")
+  is_activated        Boolean            @default(true)
+  created_at          DateTime           @default(now()) @map("created_at")
+  updated_at          DateTime           @updatedAt @map("updated_at")
+
+  userId     Int @map("user_id")
+  categoryId Int @map("category_id")
+
+  @@map("expenditure")
+}
+
+model Cards {
+  id            Int       @id @default(autoincrement())
+  user_id       User      @relation(fields: [userId], references: [id])
+  card_number   String
+  type          CardTypes
+  flags         String
+  limit         Decimal?
+  current_value Decimal?
+  closing_day   Int?
+  is_activated  Boolean   @default(true)
+  created_at    DateTime  @default(now()) @map("created_at")
+  updated_at    DateTime  @updatedAt @map("updated_at")
+
+  userId Int @map("user_id")
+
+  @@map("cards")
+}
+
+model Category {
+  id           Int      @id @default(autoincrement())
+  user_id      User     @relation(fields: [userId], references: [id])
+  name         String
+  is_activated Boolean  @default(true)
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
+
+  userId Int @map("user_id")
+
+  Expenditure Expenditure[]
+
+  @@map("category")
+}
+
+model Revenue {
+  id           Int      @id @default(autoincrement())
+  user_id      User     @relation(fields: [userId], references: [id])
+  value        Decimal
+  competence   String
+  is_activated Boolean  @default(true)
+  created_at   DateTime @default(now()) @map("created_at")
+  updated_at   DateTime @updatedAt @map("updated_at")
+
+  userId Int @map("user_id")
+
+  @@map("revenue")
+}

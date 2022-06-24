@@ -1,0 +1,71 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-light">Despesas</h1>
+        <br />
+        <a [routerLink]="['/expenditure/new']" class="btn btn-outline-primary"
+          >Novo</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="row">
+    <div id="div-col12" class="col-12">
+      <div class="card">
+        <div class="card-body" id="card-body-table">
+          <input
+            type="search"
+            name="searchExpenditure"
+            id="searchExpenditure"
+            class="form-control"
+            placeholder="Pesquisar ..."
+            (keyup)="filterExpenditure($event)"
+          />
+          <table class="table" id="expenditureTable">
+            <thead>
+              <tr>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+                <th>DATA DESPESA</th>
+                <th>CATEGORIA</th>
+                <th>METODO DE PAGAMENTO</th>
+                <th>NÚMERO DE PARCELAS</th>
+                <th>SITUAÇÃO</th>
+                <th>AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let expenditure of expenditures">
+                <td>{{ expenditure.description }}</td>
+                <td>R$ {{ expenditure.value }}</td>
+                <td>{{ expenditure.expense_date | date: "dd/MM/yyyy"  }}</td>
+                <td>{{ expenditure.category.name }}</td>
+                <td *ngIf="expenditure.payment_method == 'MONEY'">Dinheiro</td>
+                <td *ngIf="expenditure.payment_method == 'CREDIT_CARD'">Cartao de credito</td>
+                <td *ngIf="expenditure.payment_method == 'DEBIT_CARD'">Cartao de debito</td>
+                <td>{{ expenditure.number_installments }}</td>
+                <td *ngIf="expenditure.isPaid == true">Pago</td>
+                <td *ngIf="expenditure.isPaid == false">Em aberto</td>
+                <td>
+                  <i
+                    class="fas fa-pencil-alt fa-lx"
+                    (click)="onEdit(expenditure.id)"
+                  ></i>
+                  &nbsp;
+                  <i
+                    class="fas fa-trash-alt fa-lx"
+                    (click)="onDelete(expenditure.id)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

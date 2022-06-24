@@ -1,0 +1,58 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Categorias</h1>
+        <br />
+        <a [routerLink]="['/category']" class="btn btn-outline-primary"
+          >Listar Categorias</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="categoryForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <h5>Dados</h5>
+          <div class="flex">
+            <div class="line-one">
+              <label for="name">Nome Categoria*</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="categoria"
+                formControlName="name"
+                (blur)="blurValidationRequired('name')"
+              />
+              <div id="validationMessage" *ngIf="name.errors">
+                <p *ngIf="name.errors.required && context_name == 'name'">
+                  Categoria é obrigatório.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-container" style="display: flex; gap: 10px">
+          <a
+            [routerLink]="['/category']"
+            type="button"
+            class="btn btn-outline-danger"
+          >
+            <i class="fas fa-times"></i>
+            Cancelar
+          </a>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-check"></i>
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
