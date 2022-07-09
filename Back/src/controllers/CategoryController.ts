@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { prismaClient } from '../database';
-import { CreateCategoryDTO, createCategoryRequestSchema } from '../dtos';
+import { CreateCategoryDTO, createCategoryRequestSchema, UpdateCategoryDTO, updateCategoryRequestSchema} from '../dtos';
 
 class CategoryController {
   public async store(request: Request, response: Response) {
@@ -144,7 +144,7 @@ class CategoryController {
 
   public async update(request: Request, response: Response) {
     try {
-      await createCategoryRequestSchema.validate(request.body, {
+      await updateCategoryRequestSchema.validate(request.body, {
         abortEarly: false,
       });
     } catch (err: any) {
@@ -155,33 +155,17 @@ class CategoryController {
     }
 
     const {
-      user_id,
       name
-    }: CreateCategoryDTO = request.body;
+    }: UpdateCategoryDTO = request.body;
 
     const { id } = request.params;
 
     try {
-      const userExist = await prismaClient.user.findFirst({
-        where: {
-          id: user_id,
-          is_activated: true
-        },
-      });
-
-      if (!userExist) {
-        return response.status(404).json({
-          error: true,
-          message: "Usuario nao existe",
-        });
-      }
-
       const updateCategory = await prismaClient.category.update({
         where: {
           id: Number(id)
         },
         data: {
-          userId: user_id,
           name
         }
       })
