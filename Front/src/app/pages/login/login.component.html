@@ -2,6 +2,7 @@
   <div class="container-form">
       <div class="login login-form">
           <div class="login-body">
+            <div class="container-login">
               <p class="login-box-msg">Login</p>
               <form [formGroup]="loginForm" (ngSubmit)="login()">
                   <div class="input-group mb-3">
@@ -24,6 +25,7 @@
                      <app-button (click)="login()" [type]="'submit'" [block]="true" [text]="'Acessar'" [loading]="isAuthLoading"></app-button>
                   </div>
               </form>
+            </div>
           </div>
       </div>
   </div>
