@@ -8,7 +8,7 @@
 }
 
 .container-fluid{
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .card-body{
@@ -29,4 +29,19 @@
 
 #validationMessage{
   color: red;
+}
+
+.card-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
+  background-color: steelblue;
+}
+
+.table {
+  color: #888ea8;
+  font-size: 13px;
+}
+
+th {
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
 }

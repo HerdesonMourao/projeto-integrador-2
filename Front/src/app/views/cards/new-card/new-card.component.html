@@ -20,7 +20,7 @@
           <h5>Dados</h5>
           <div class="flex">
             <div class="line-one">
-              <label for="card_number">Número do cartão*</label>
+              <label for="card_number">Número do cartão</label>
               <input
                 id="card_number"
                 name="card_number"
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="line-one">
-              <label for="type">Tipo*</label>
+              <label for="type">Tipo</label>
               <select id= "type"  class="form-control" formControlName="type" (change)="checkTypeCard($event)">
                 <option value="">-- Selecione --</option>
                 <option value="CREDIT">CREDITO</option>
@@ -47,7 +47,7 @@
           </div>
           <div class="flex">
             <div class="line-two">
-              <label for="flags">Bandeira*</label>
+              <label for="flags">Bandeira</label>
               <input
                 id="flags"
                 name="flags"
@@ -89,7 +89,7 @@
           </div>
           <div class="flex">
             <div class="line-three" [hidden]="credit_type">
-              <label for="closing_day">Dia fechamento*</label>
+              <label for="closing_day">Dia fechamento</label>
               <input
                 id="closing_day"
                 name="closing_day"
