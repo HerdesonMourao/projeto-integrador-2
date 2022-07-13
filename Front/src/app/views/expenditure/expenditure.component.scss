@@ -8,7 +8,7 @@
   float: right;
   margin-bottom: 15px;
 }
-.card {
+.Expenditure {
   background-color: #0e1726;
   color: white;
 }
@@ -23,17 +23,17 @@ th {
   font-size: 13px;
   font-weight: 500;
 }
-.card-body{
+.Expenditure-body{
   background-color: #fbfbfb !important;
   color: white;
-  
+
 }
-.card .card-body{
+.Expenditure .Expenditure-body{
   background-color: #fbfbfb !important;
   color: white;
   box-shadow: 0 0 1em rgb(185, 185, 185);
   border-radius: 8px;
 }
-.card-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
+.Expenditure-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
   background-color: steelblue;
 }

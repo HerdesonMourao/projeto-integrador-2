@@ -5,10 +5,7 @@
   width: 20%;
   min-width: 250px;
   float: right;
-}
-.category {
-  background-color: #0e1726;
-  color: white;
+  margin-bottom: 15px;
 }
 
 .category-body{
@@ -36,6 +33,3 @@ th {
   font-weight: 500;
 }
 
-.category-body>.table>thead>tr>td, .category-body>.table>thead>tr>th {
-  background-color: steelblue;
-}
