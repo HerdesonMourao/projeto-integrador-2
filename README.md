@@ -8,7 +8,7 @@
 ### Tecnologias utilizadas
 
 * Typescript
-* Postgresql
+* MySQL
 * Prisma
 * Angular
 
@@ -20,7 +20,7 @@
 
 ### Links Importantes
 
-* [Repositório github](https://github.com/HerdesonMourao/projeto-integrador-2)
+* [Repositório github](https://github.com/HerdesonMourao/projeto-integrador-3)
 * [Prototipagem de interface](https://www.figma.com/file/CKomgyF4j9ScwqujCnZG4a/Projeto-integrador-3?node-id=0%3A1)
 
 ### Diagramas
