@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Receitas</h1>
+        <h1 class="m-0 text-light">Receitas</h1>
         <br />
         <a [routerLink]="['/revenue']" class="btn btn-outline-primary"
           >Listar Receitas</a
@@ -17,10 +17,10 @@
     <div class="card-body">
       <form [formGroup]="revenueForm" (ngSubmit)="register()">
         <div class="form-group">
-          <h5>Dados</h5>
+          <th>DADOS</th>
           <div class="flex">
             <div class="line-one">
-              <label for="competence">Competencia*</label>
+              <label for="competence">COMPETÊNCIA</label>
               <input
                 id="competence"
                 name="competence"
@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="line-one">
-              <label for="value">Valor*</label>
+              <label for="value">VALOR</label>
               <input
                 id="value"
                 name="value"

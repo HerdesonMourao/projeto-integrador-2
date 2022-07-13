@@ -13,7 +13,7 @@
 
 .card-body{
   display: flex;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #email{
@@ -41,4 +41,7 @@
 
 #validationMessage{
   color: red;
+}
+.text-light {
+  color: black !important;
 }
