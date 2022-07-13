@@ -8,13 +8,7 @@
 }
 
 .container-fluid{
-  color: white;
-}
-
-.card-body{
-  display: flex;
-  background-color:#0e1726;
-  color: white;
+  color: rgb(12, 12, 12);
 }
 
 #email{
@@ -42,4 +36,11 @@
 
 #validationMessage{
   color: red;
+}
+
+.Expenditure .Expenditure-body{
+  background-color: #fbfbfb !important;
+  color: rgb(3, 3, 3);
+  box-shadow: 0 0 1em rgb(185, 185, 185);
+  border-radius: 8px;
 }

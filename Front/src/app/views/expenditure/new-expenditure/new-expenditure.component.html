@@ -17,10 +17,10 @@
     <div class="card-body">
       <form [formGroup]="expenditureForm" (ngSubmit)="register()">
         <div class="form-group">
-          <h5>Dados</h5>
+          <h5>DADOS</h5>
           <div class="flex">
             <div class="line-one">
-              <label for="description">Descrição*</label>
+              <label for="description">Descrição</label>
               <input
                 id="description"
                 name="description"
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="line-one">
-              <label for="value">Valor*</label>
+              <label for="value">Valor</label>
               <input
               id="value"
               name="value"
@@ -57,7 +57,7 @@
           </div>
           <div class="flex">
             <div class="line-two">
-              <label for="expense_date">Data da despesa*</label>
+              <label for="expense_date">Data da despesa</label>
               <input
                 id="expense_date"
                 name="expense_date"
@@ -67,7 +67,7 @@
               />
             </div>
             <div class="line-two">
-              <label for="Category">Categoria*</label>
+              <label for="Category">Categoria</label>
               <select id= "Category" class="form-control" formControlName="Category">
                 <option value="" >-- selecione --</option>
                 <option *ngFor="let category of categorys" [value]="category.id">{{ category.name }}</option>
@@ -85,7 +85,7 @@
               </select>
             </div>
             <div class="line-three">
-              <label for="number_installments">Numero de parcelas*</label>
+              <label for="number_installments">Numero de parcelas</label>
               <input
                 id="number_installments"
                 name="number_installments"
@@ -97,7 +97,7 @@
               />
             </div>
             <div class="line-three">
-              <label for="isPaid">Status*</label>
+              <label for="isPaid">Status</label>
               <select id= "isPaid" class="form-control" formControlName="isPaid">
                 <option value="" selected>-- Selecione --</option>
                 <option value="false">EM ABERTO</option>
