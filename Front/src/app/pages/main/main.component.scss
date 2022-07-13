@@ -5,8 +5,9 @@
 .content-wrapper{
   height: 90vh;
   overflow-y: scroll;
-  padding: 0 10px;
   background-color: #eaedef;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .wrapper {
   min-height: calc(100vh - 114px);
