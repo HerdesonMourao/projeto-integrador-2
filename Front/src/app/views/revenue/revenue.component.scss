@@ -8,12 +8,13 @@
   float: right;
   margin-bottom: 15px;
 }
-.Revenue-body {
-  background-color: #fbfbfb;
-  color: steelblue;
-}
 
-.Revenue .Revenue-body{
+.card-body{
+  background-color: #fbfbfb !important;
+  color: white;
+  
+}
+.card .card-body{
   background-color: #fbfbfb !important;
   color: white;
   box-shadow: 0 0 1em rgb(185, 185, 185);
@@ -35,6 +36,6 @@ th {
   font-weight: 500;
 }
 
-.Revenue-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
+.card-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
   background-color: steelblue;
 }
