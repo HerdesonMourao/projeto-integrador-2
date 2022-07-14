@@ -1,44 +1,41 @@
 .body{
-  background-color: white;
- 
-    position:relative;
-    left:37%;
-    top:10em;
-    width:320px;
-    height:270px;
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background: #FEFEFE;
   
 }
 
-.container-form{
-  margin-top: -15px;
+.container-form .login {
   height: 100vh;
-  width: 100%;
+  width: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-right: 10px;
+  padding-left: 78px;
+  margin-left: 350px !important;
 }
 
-.login .login-form{
-  
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-
-}
 .login-form{
+  background: content-box;
   width: 350px;
-  background-color: #060818;
-  border-radius: 15px;
+  background-color: #075390;
+  border-radius: 40px !important;
+  
 }
 .login-box-msg{
   
   padding-left: 0px;
   padding-right: 0px;
   color: #faf8f8;
+  font-size: 40px;
 }
 
 .login-body{
-  background-color: #060818;
+  background-color: #075390;
   border-radius: 20px;
 }
 
@@ -46,3 +43,17 @@
   float: right;
 }
 
+.btn-primary:hover {
+  color: #fff;
+  background-color: #2674c7;
+  border-color: #2674c7;
+  left: 10px;
+}
+.grafico{
+  margin-top: -600px;
+  margin-left: 130px;
+  margin-bottom: 56px;
+  margin-right: 23px;
+  margin-bottom: 854px;
+  height: 530px;
+}

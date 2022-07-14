@@ -23,17 +23,20 @@ th {
   font-size: 13px;
   font-weight: 500;
 }
-.Expenditure-body{
+.card-body{
   background-color: #fbfbfb !important;
   color: white;
-
+  
 }
-.Expenditure .Expenditure-body{
+.card .card-body{
   background-color: #fbfbfb !important;
   color: white;
   box-shadow: 0 0 1em rgb(185, 185, 185);
   border-radius: 8px;
 }
-.Expenditure-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
+.card-body>.table>thead>tr>td, .card-body>.table>thead>tr>th {
   background-color: steelblue;
+}
+.text-light {
+  color: black !important;
 }
