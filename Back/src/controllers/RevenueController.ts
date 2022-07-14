@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { prismaClient } from "../database";
-import { CreateRevenueDTO, createRevenueRequestSchema } from "../dtos";
+import { CreateRevenueDTO, createRevenueRequestSchema, UpdateRevenueDTO, updateRevenueRequestSchema } from "../dtos";
 
 class RevenueController {
   public async store(request: Request, response: Response) {
@@ -146,7 +146,7 @@ class RevenueController {
 
   public async update(request: Request, response: Response) {
     try {
-      await createRevenueRequestSchema.validate(request.body, {
+      await updateRevenueRequestSchema.validate(request.body, {
         abortEarly: false,
       });
     } catch (err: any) {
@@ -157,34 +157,18 @@ class RevenueController {
     }
 
     const {
-      user_id,
       value,
       competence
-    }: CreateRevenueDTO = request.body;
+    }: UpdateRevenueDTO = request.body;
 
     const { id } = request.params;
 
-    try {
-      const userExist = await prismaClient.user.findFirst({
-        where: {
-          id: user_id,
-          is_activated: true
-        }
-      });
-  
-      if(!userExist) {
-        return response.status(404).json({
-          error: true,
-          message: 'Usuario nao existe'
-        });
-      };
-  
+    try {  
       const updateRevenue = await prismaClient.revenue.update({
         where: {
           id: Number(id)
         },
         data: {
-          userId: user_id,
           value,
           competence
         }

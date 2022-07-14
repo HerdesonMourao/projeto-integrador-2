@@ -11,3 +11,13 @@ export const createRevenueRequestSchema = yup.object({
   value: yup.number().required(),
   competence: yup.string().required()
 })
+
+export interface UpdateRevenueDTO {
+  value: number;
+  competence: string;
+}
+
+export const updateRevenueRequestSchema = yup.object({
+  value: yup.number().required(),
+  competence: yup.string().required()
+})

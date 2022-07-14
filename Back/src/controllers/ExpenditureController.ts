@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { prismaClient } from '../database';
-import { CreateExpenditureDTO, createExpenditureRequestSchema } from '../dtos';
+import { CreateExpenditureDTO, createExpenditureRequestSchema, UpdateExpenditureDTO, updateExpenditureRequestSchema } from '../dtos';
 
 class ExpenditureController {
   public async store(request: Request, response: Response) {
@@ -161,7 +161,7 @@ class ExpenditureController {
 
   public async update(request: Request, response: Response) {
     try {
-      await createExpenditureRequestSchema.validate(request.body, {
+      await updateExpenditureRequestSchema.validate(request.body, {
         abortEarly: false,
       });
     } catch (err: any) {
@@ -172,7 +172,6 @@ class ExpenditureController {
     }
 
     const {
-      user_id,
       description,
       value,
       expense_date,
@@ -180,25 +179,11 @@ class ExpenditureController {
       payment_method,
       number_installments,
       isPaid
-    }: CreateExpenditureDTO = request.body;
+    }: UpdateExpenditureDTO = request.body;
 
     const { id } = request.params;
 
     try {
-      const userExist = await prismaClient.user.findFirst({
-        where: {
-          id: user_id,
-          is_activated: true
-        },
-      });
-
-      if (!userExist) {
-        return response.status(404).json({
-          error: true,
-          message: "Usuario nao existe",
-        });
-      }
-
       const convertDate = new Date(expense_date);
 
       const updateExpenditure = await prismaClient.expenditure.update({
@@ -206,7 +191,6 @@ class ExpenditureController {
           id: Number(id)
         },
         data: {
-          userId: user_id,
           description,
           value,
           expense_date: convertDate,
