@@ -1,7 +1,15 @@
 .dropdown-menu{
   background-color: #5892C1;
+  top: 45px;
+  border: 12px;
+  right: 8px;
 }
 
 .fas {
   color: #ffff;
+}
+
+.dropdown-item:hover {
+  text-decoration: none;
+  background-color: #507aa5;
 }
