@@ -85,8 +85,6 @@ export class EditExpenditureComponent implements OnInit {
   }
 
   register(){
-    this.expenditureForm.value.user_id = Number(localStorage.getItem('user_id'));
-
     if(this.expenditureForm.value.isPaid == `true`){
       this.expenditureForm.value.isPaid = true
     } else {

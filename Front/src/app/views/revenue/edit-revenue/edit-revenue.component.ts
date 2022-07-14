@@ -60,8 +60,6 @@ export class EditRevenueComponent implements OnInit {
   }
 
   register(){
-    this.revenueForm.value.user_id = Number(localStorage.getItem('user_id'));
-
     if(this.revenueForm.valid){
       this.revenueService.update(this.revenueForm.value, this.idParams).subscribe(
         (dados) => {

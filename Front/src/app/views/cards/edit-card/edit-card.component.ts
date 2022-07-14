@@ -81,8 +81,6 @@ export class EditCardComponent implements OnInit {
   }
 
   register(){
-    this.cardForm.value.user_id = Number(localStorage.getItem('user_id'));
-
     this.cardForm.patchValue({
       closing_day: Number(this.cardForm.value.closing_day)
     });

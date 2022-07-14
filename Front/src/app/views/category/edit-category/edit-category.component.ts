@@ -57,8 +57,6 @@ export class EditCategoryComponent implements OnInit {
   }
 
   register(){
-    this.categoryForm.value.user_id = Number(localStorage.getItem('user_id'));
-
     if(this.categoryForm.valid){
       this.categoryService.update(this.categoryForm.value, this.idParams).subscribe(
         (dados) => {
