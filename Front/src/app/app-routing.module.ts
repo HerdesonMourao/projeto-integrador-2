@@ -54,7 +54,7 @@ const routes: Routes = [
         path: `category`, component: CategoryComponent
       },
       {
-        path: `category/mew`, component: NewCategoryComponent
+        path: `category/new`, component: NewCategoryComponent
       },
       {
         path: `category/edit/:id`, component: EditCategoryComponent
