@@ -8,13 +8,13 @@
 }
 
 .container-fluid{
-  color: white;
+  color: rgb(12, 10, 10);
 }
 
 .user-body{
   display: flex;
-  background-color:#0e1726;
-  color: white;
+  background-color:white;
+  color: rgb(0, 0, 0);
 }
 
 #email{
@@ -42,4 +42,7 @@
 
 #validationMessage{
   color: red;
+}
+.text-light {
+  color: black !important;
 }
