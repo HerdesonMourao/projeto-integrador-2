@@ -1,6 +1,6 @@
 <div align="center">
     <h1>
-        Projeto Integrador II - Backend
+        Projeto Integrador III
         <p> Projeto 2 - Controle de Gastos </p>
     </h1>
 </div>
@@ -24,4 +24,6 @@ Para executar o projeto, voce deve inicialmente acessar a pasta `projeto-integra
 
 ### Membros
 
+* Anna Karen Batista de Sousa
 * Herdeson Rodrigues Mourão
+* Jaqueline Portela da Silva do Nascimento
