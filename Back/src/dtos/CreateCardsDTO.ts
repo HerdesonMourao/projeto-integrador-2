@@ -27,3 +27,24 @@ export const createCardsRequestSchema = yup.object({
   current_value: yup.number().nullable(),
   closing_day: yup.number().nullable()
 })
+
+export interface UpdateCardsDTO {
+  card_number: string;
+  type: CardTypes;
+  flags: string;
+  limit: number;
+  current_value: number;
+  closing_day: number;
+}
+
+export const updateCardsRequestSchema = yup.object({
+  card_number: yup.string().required(),
+  type: yup
+    .string()
+    .oneOf([CardTypes.CREDIT, CardTypes.DEBIT])
+    .required(),
+  flags: yup.string().required(),
+  limit: yup.number().nullable(),
+  current_value: yup.number().nullable(),
+  closing_day: yup.number().nullable()
+})

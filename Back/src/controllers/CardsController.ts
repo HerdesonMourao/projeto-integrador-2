@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { prismaClient } from "../database";
-import { CreateCardsDTO, createCardsRequestSchema } from "../dtos";
+import { CreateCardsDTO, createCardsRequestSchema, UpdateCardsDTO, updateCardsRequestSchema } from "../dtos";
 
 class CardsController {
   public async store(request: Request, response: Response) {
@@ -169,7 +169,7 @@ class CardsController {
 
   public async update(request: Request, response: Response) {
     try {
-      await createCardsRequestSchema.validate(request.body, {
+      await updateCardsRequestSchema.validate(request.body, {
         abortEarly: false,
       });
     } catch (err: any) {
@@ -180,14 +180,13 @@ class CardsController {
     }
 
     const {
-      user_id,
       card_number,
       type,
       flags,
       limit,
       current_value,
       closing_day,
-    }: CreateCardsDTO = request.body;
+    }: UpdateCardsDTO = request.body;
 
     const { id } = request.params;
 
@@ -206,21 +205,6 @@ class CardsController {
           message: 'Cartao nao existe'
         });
       };
-
-      //verificar se usuario existe
-      const userExist = await prismaClient.user.findFirst({
-        where: {
-          id: user_id,
-          is_activated: true
-        },
-      });
-
-      if (!userExist) {
-        return response.status(404).json({
-          error: true,
-          message: "Usuario nao existe",
-        });
-      }
 
       //verificar se cartao existe
       const cardNumberExist = await prismaClient.cards.findFirst({
@@ -244,7 +228,6 @@ class CardsController {
           id: Number(id)
         },
         data: {
-          userId: user_id,
           card_number,
           type,
           flags,
